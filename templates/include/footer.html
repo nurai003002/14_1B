@@ -1,0 +1,141 @@
+{% load static %}
+<!-- Reservation & Booking Form -->
+<section class="testimonials">
+    <div class="background bg-img bg-fixed section-padding pb-0" data-background="{{footer.image.url}}"
+        data-overlay-dark="2">
+        <div class="container">
+            <div class="row">
+                <!-- Reservation -->
+                <div class="col-md-5 mb-30 mt-30">
+                    <div class="reservations mb-30">
+                        <div class="icon color-1"><span class="flaticon-call"></span></div>
+                        <div class="text">
+                            <p class="color-1">Забронировать</p> <a class="color-1" href="tel:{{admin.phone}}">{{admin.phone}}</a>
+                        </div>
+                    </div>
+                    <p><i class="ti-check"></i><small>Позвоните нам</small></p>
+                </div>
+                <!-- Booking From -->
+                <div class="col-md-5 offset-md-2">
+                    <div class="booking-box">
+                        <div class="head-box">
+                            <h6>{{admin.title}}</h6>
+                            <h4>Забронировать</h4>
+                        </div>
+                        <div class="booking-inner clearfix">
+                            <form method="POST" class="form1 clearfix">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="input1_wrapper">
+                                            <label>Имя</label>
+                                            <div class="input1_inner">
+                                                <input type="text" name="fullname" class="form-control baseinput"
+                                                    placeholder="ФИО">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="input1_wrapper">
+                                            <label>Телефон</label>
+                                            <div class="input1_inner">
+                                                <input type="text" name="phone" class="form-control baseinput"
+                                                    placeholder="Телефон">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="input1_wrapper">
+                                            <label>Дата</label>
+                                            <div class="input1_inner">
+                                                <input type="text" name="date" class="form-control input datepicker"
+                                                    placeholder="Дата">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input1_inner">
+                                            <label>Взрослые</label>
+                                            <!-- <div class="input1_inner"></div> -->
+                                                <input type="text" name="adults_quantity" class="form-control baseinput"
+                                                        placeholder="Взрослые">
+                                            <!-- </div> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input1_inner">
+                                            <label>Дети</label>
+                                            <!-- <div class="input1_inner"></div> -->
+                                                <input type="text" name="childs_quantity" class="form-control baseinput"
+                                                        placeholder="Взрослые">
+                                            <!-- </div> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <button name="footer_submit" type="submit" class="btn-form1-submit mt-15">Забронировать</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="footer-column footer-about">
+                        <h3 class="footer-title">О нас</h3>
+                        <p class="footer-about-text">{{footer.mini_description}}</p>
+                    </div>
+                </div>
+                <div class="col-md-3 offset-md-1">
+                    <div class="footer-column footer-explore clearfix">
+                        <h3 class="footer-title">Меню</h3>
+                        <ul class="footer-explore-list list-unstyled">
+                            <li><a href="{% url 'index_url' %}">Главная</a></li>
+                            <li><a href="{% url 'about_us_url' %}">О нас</a></li>
+                            <li><a href="{% url 'team_url' %}">Команда</a></li>
+                            <li><a href="{% url 'gallery_url' %}">Галерея</a></li>
+                            <li><a href="{% url 'news_url' %}">Новости</a></li>
+                            <li><a href="{% url 'contact_url' %}">Контакты</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="footer-column footer-contact">
+                        <h3 class="footer-title">Контакты</h3>
+                        <p class="footer-contact-text">Адрес<br>{{admin.location}}
+                        </p>
+                        <div class="footer-contact-info">
+                            <p class="footer-contact-phone"><span class="flaticon-call"></span>{{admin.phone}}</p>
+                            <p class="footer-contact-mail"><a href="mailto:{{admin.email}}">{{admin.email}}</a></p>
+                        </div>
+                        <div class="footer-about-social-list">
+                            <a href="{{admin.instagram}}"><i class="ti-instagram"></i></a>
+                            <a href="{{admin.twitter}}"><i class="ti-twitter"></i></a>
+                            <a href="{{admin.youtube}}"><i class="ti-youtube"></i></a>
+                            <a href="{{admin.facebook}}"><i class="ti-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="footer-bottom-inner">
+                        <p class="footer-bottom-copy-right">© Copyright 2023 by <a href="#">Нурболот</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+</footer>

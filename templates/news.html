@@ -1,0 +1,48 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'include/header.html' %}
+    <!-- Header Banner -->
+    <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="4" data-background="{{news.image.url}}">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-left caption mt-90">
+                    <h5>{{admin.title}}</h5>
+                    <h1>{{news.title}}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Rooms -->
+    <section class="rooms1 section-padding bg-cream" data-scroll-index="1">
+        <div class="container">
+            <div class="row">
+                {% for banner in banner_all %}
+                <div class="col-md-4">
+                    <div class="item br-20">
+                        <div class="position-re o-hidden"><img src="{{banner.background.url}}" alt=""></div>
+                        <div class="con">
+                            <h5><a href="{% url 'news_url '%}">Новость {{banner.id}}</a> </h5>
+                            <div class="line"></div>
+                            <div class="row facilities">
+                                <div class="col col-md-5 text-end">
+                                    <div class="permalink">
+                                        <a href="{% url 'post_url' %}">
+                                            Подробнее<i class="ti-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}    
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    {% include 'include/footer.html' %} 
+    
+
+{% endblock %}

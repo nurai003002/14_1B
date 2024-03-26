@@ -1,0 +1,47 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'include/header.html' %}
+    <!-- Header Banner -->
+    {% for banner in banner_all %}
+    <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="4" data-background="{{banner.background.url}}">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-left caption mt-90">
+                    <h5><a href="{% url 'news_url' %}">Новости</a> / Новость {{banner.id}}</h5>
+                    <h1>Новость {{banner.id}}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Post -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12"> 
+                    <img src="{{banner.main_image.url}}" class="mb-30" alt="">
+                    <h2>{{banner.banner_title}}</h2>
+                    <p>{{banner.banner_text}}</p>
+                    <blockquote>
+                        <p>{{banner.quote|truncatewords:50}}</p>
+                    </blockquote>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="{{banner.image_1.url}}" class="mb-30" alt="">
+                        </div>
+                        <div class="col-md-6">
+                            <img src="{{banner.image_2.url}}" class="mb-30" alt="">
+                        </div>
+                    </div>
+                    <p>{{banner.mini_description}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    <!-- Footer -->
+    {% include 'include/footer.html' %} 
+    
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'include/header.html' %}
+    <!-- Header Banner -->
+    <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="4" data-background="{% static 'img/merrigarden/banner/1.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 caption mt-90">
+                    <h5>MerriGarden</h5>
+                    <h1>Команда</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team -->
+    <section class="team section-padding bg-cream">
+        <div class="container">
+            <div class="row">
+                {% for team in team %}
+                <div class="col-md-4">
+                    <div class="item">
+                        <div class="img"> <img src="{{team.image.url}}" alt=""> </div>
+                        <div class="info">
+                            <h6>{{team.name}}</h6>
+                            <p>{{team.work}}</p>
+                            <div class="social valign">
+                                <div class="full-width"> 
+                                   <a href="{{team.instagram}}"><i class="ti-instagram"></i></a> 
+                                   <a href="{{team.twitter}}"><i class="ti-twitter"></i></a> 
+                                   <a href="{{team.facebook}}"><i class="ti-facebook"></i></a> 
+                                   <p>{{team.email}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    {% include 'include/footer.html' %} 
+    
+
+{% endblock %}

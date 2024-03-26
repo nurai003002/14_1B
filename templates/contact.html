@@ -1,0 +1,86 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'include/header.html' %}
+    <!-- Header Banner -->
+    <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="3"
+        data-background="{{contact.background.url}}">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-left caption mt-90">
+                    <h5>{{admin.title}}</h5>
+                    <h1>Наши Контакты</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact -->
+    <section class="contact section-padding">
+        <div class="container">
+            <div class="row mb-90">
+                <div class="col-md-6 mb-60">
+                    <h3>{{admin.title}}</h3>
+                    <p>{{contact.description}}</p>
+                    <div class="reservations mb-30">
+                        <div class="icon"><span class="flaticon-call"></span></div>
+                        <div class="text">
+                            <p>Забронировать</p> <a href="tel:{{admin.phone}}">{{admin.phone}}</a>
+                        </div>
+                    </div>
+                    <div class="reservations mb-30">
+                        <div class="icon"><span class="flaticon-envelope"></span></div>
+                        <div class="text">
+                            <p>Email</p> <a href="mailto:{{admin.email}}">{{admin.email}}</a>
+                        </div>
+                    </div>
+                    <div class="reservations">
+                        <div class="icon"><span class="flaticon-location-pin"></span></div>
+                        <div class="text">
+                            <p></p>Адрес
+                            <br>{{admin.location}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 mb-30 offset-md-1">
+                    <h3>Свяжитесь с нами</h3>
+                    <form method="POST" class="contact__form">
+                        <!-- form message -->
+                        {% csrf_token %}
+                        <!-- form elements -->
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <input name="fullname" type="text" placeholder="ФИО *" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input name="email" type="email" placeholder="Email">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input name="phone" type="text" placeholder="Номер Телефона *" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input name="theme" type="text" placeholder="Тема">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <textarea name="message" id="message" cols="30" rows="4" placeholder="Сообщение"></textarea>
+                            </div>
+                            <div class="col-md-12">
+                                <button name="contact_submit" type="submit" class="butn-dark2"><span>Отправить</span></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Map Section -->
+            <!-- <div class="row">
+                <div class="col-md-12 map animate-box" data-animate-effect="fadeInUp">
+                    Добавь карту сюда!!!!!!!!!!!!! Google 2gis хз
+                </div>
+            </div> -->
+        </div>
+    </section>
+    <!-- Footer -->
+    {% include 'include/footer.html' %} 
+    
+
+{% endblock %}
