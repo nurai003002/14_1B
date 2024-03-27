@@ -35,10 +35,11 @@ def about_us(request):
     return render(request, 'about.html', locals())
 
 def team(request):
+    admin = Admin.objects.latest('id')
     # setting = Settings.objects.latest('id')
     team = Team.objects.all()
     footer = Footer.objects.all()
-    
+    about = AboutUs.objects.latest('id')        
     # founder = Founder.objects.latest('id')
     if request.method =="POST":
         name = request.POST.get('name')
@@ -78,6 +79,9 @@ def news(request):
 def gallery(request):
     admin = Admin.objects.latest('id')
     footer = Footer.objects.latest('id')
+    photoes = Gallery.objects.all()
+    banner_all = Banner.objects.all()
+
     if request.method == 'POST':
         fullname = request.POST.get("fullname")
         phone = request.POST.get("phone")

@@ -4,11 +4,11 @@
 
 {% include 'include/header.html' %}
     <!-- Header Banner -->
-    <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="4" data-background="{% static 'img/merrigarden/banner/1.jpg' %}">
+    <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="4" data-background="{{about.background.url}}">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 caption mt-90">
-                    <h5>MerriGarden</h5>
+                    <h5>{{admin.title}}</h5>
                     <h1>Галерея</h1>
                 </div>
             </div>
@@ -19,68 +19,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="section-subtitle">MerriGarden</div>
+                    <div class="section-subtitle">{{admin.title}}</div>
                     <div class="section-title">Галерея</div>
                 </div>
                 <!-- 3 columns -->
+                {% for gallery in photoes %}
                 <div class="col-md-4 gallery-item">
-                    <a href="{% static 'img/merrigarden/banner/1.jpg' %}" title="" class="img-zoom">
+                    <a href="{{gallery.image.url}}" title="" class="img-zoom">
                         <div class="gallery-box">
-                            <div class="gallery-img"> <img src="{% static 'img/merrigarden/banner/1.jpg' %}" class="img-fluid mx-auto d-block" alt="work-img"> </div>
+                            <div class="gallery-img"> <img src="{{gallery.image.url}}" class="img-fluid mx-auto d-block" alt="work-img"> </div>
                         </div>
                     </a>
                 </div>
-                <div class="col-md-4 gallery-item">
-                    <a href="{% static 'img/merrigarden/banner/2.jpg' %}" title="" class="img-zoom">
-                        <div class="gallery-box">
-                            <div class="gallery-img"> <img src="{% static 'img/merrigarden/banner/2.jpg' %}" class="img-fluid mx-auto d-block" alt="work-img"> </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 gallery-item">
-                    <a href="{% static 'img/merrigarden/news/3.jpg' %}" title="" class="img-zoom">
-                        <div class="gallery-box">
-                            <div class="gallery-img"> <img src="{% static 'img/merrigarden/news/3.jpg' %}" class="img-fluid mx-auto d-block" alt="work-img"> </div>
-                        </div>
-                    </a>
-                </div>
-                <!-- 2 columns -->
-                <div class="col-md-6 gallery-item">
-                    <a href="{% static 'img/merrigarden/news/1.jpg' %}" title="" class="img-zoom">
-                        <div class="gallery-box">
-                            <div class="gallery-img"> <img src="{% static 'img/merrigarden/news/1.jpg' %}" class="img-fluid mx-auto d-block" alt="work-img"> </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 gallery-item">
-                    <a href="{% static 'img/merrigarden/news/2.jpg' %}" title="" class="img-zoom">
-                        <div class="gallery-box">
-                            <div class="gallery-img"> <img src="{% static 'img/merrigarden/news/2.jpg' %}" class="img-fluid mx-auto d-block" alt="work-img"> </div>
-                        </div>
-                    </a>
-                </div>
-                <!-- 3 columns -->
-                <div class="col-md-4 gallery-item">
-                    <a href="{% static 'img/merrigarden/news/4.jpg' %}" title="" class="img-zoom">
-                        <div class="gallery-box">
-                            <div class="gallery-img"> <img src="{% static 'img/merrigarden/news/4.jpg' %}" class="img-fluid mx-auto d-block" alt="work-img"> </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 gallery-item">
-                    <a href="{% static 'img/merrigarden/news/5.jpg' %}" title="" class="img-zoom">
-                        <div class="gallery-box">
-                            <div class="gallery-img"> <img src="{% static 'img/merrigarden/news/5.jpg' %}" class="img-fluid mx-auto d-block" alt="work-img"> </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 gallery-item">
-                    <a href="{% static 'img/merrigarden/banner/1.jpg' %}" title="" class="img-zoom">
-                        <div class="gallery-box">
-                            <div class="gallery-img"> <img src="{% static 'img/merrigarden/banner/1.jpg' %}" class="img-fluid mx-auto d-block" alt="work-img"> </div>
-                        </div>
-                    </a>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>
